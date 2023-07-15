@@ -7,9 +7,11 @@ import { InputNumberDirective } from 'src/app/directives/input-number.directive'
 import { LoadingComponent } from './loading/loading.component';
 import { PageLoadingComponent } from './page-loading/page-loading.component';
 import { PaginationComponent } from './pagination/pagination.component';
+import { MessageComponent } from '../modals/message/message.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [CommonModule, MatDialogModule],
   declarations: [
     LoadingComponent,
     PageLoadingComponent,
@@ -17,6 +19,7 @@ import { PaginationComponent } from './pagination/pagination.component';
     IconDirective,
     InputFileDirective,
     InputNumberDirective,
+    MessageComponent,
   ],
   exports: [
     LoadingComponent,
@@ -25,6 +28,7 @@ import { PaginationComponent } from './pagination/pagination.component';
     IconDirective,
     InputFileDirective,
     InputNumberDirective,
+    MessageComponent,
   ],
 })
 export class SharedModule {}

@@ -19,6 +19,7 @@ $my-theme: mat.define-light-theme(
 @import 'styles/input';
 @import 'styles/media';
 @import 'styles/scroll';
+@import 'styles/tablet';
 @import 'styles/transitions';
 @import 'styles/typography';
 @import 'styles/variables';
@@ -36,6 +37,21 @@ body {
 body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
+  background-color: var(----primary-bg);
+}
+
+main {
+  header {
+    h1 {
+      font-weight: 500 !important;
+      margin: 0 !important;
+    }
+    .line {
+      width: 50%;
+      height: 1px;
+      // background: linear-gradient(to right, #3333337d, #eeeeee00 100%);
+    }
+  }
 }
 
 .cdk-global-overlay-wrapper,

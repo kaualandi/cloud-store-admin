@@ -10,10 +10,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from './../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
-
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MatButtonModule } from '@angular/material/button';
+import { SharedModule } from './components/shared/shared.module';
 
 registerLocaleData(localePt);
 
@@ -27,6 +28,8 @@ registerLocaleData(localePt);
     MatSnackBarModule,
     MatDialogModule,
     MatButtonModule,
+    MatSidenavModule,
+    SharedModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // ? Registra o ServiceWorker após build em produção

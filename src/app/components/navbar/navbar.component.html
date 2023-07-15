@@ -1,23 +1,35 @@
-<nav #navbar [ngClass]="{ scroll }" [ngStyle]="{ '--navbar-height': navbar_height + 'px' }">
-  <div class="content">
+<nav>
+  <mat-drawer-container class="example-container">
+    <mat-drawer mode="side" opened>
+      <figure>
+        <img src="../../../assets/images/user_photo.png" alt="" />
+      </figure>
 
-    <a class="logo" routerLink="/">
-      <img src="assets/images/logo.png" alt="logo">
-      Boilerplate
-    </a>
+      <li routerLink="/users" routerLinkActive="active">
+        <i icon="users"></i>
+      </li>
 
-    <div class="hamburger" [ngClass]="{ active: !navbar_hidden }">
-      <button aria-label="menu" mat-icon-button (click)="navbar_hidden = !navbar_hidden">
-        <span class="line"></span>
-      </button>
-    </div>
+      <li routerLink="/teams" routerLinkActive="active">
+        <i icon="teams"></i>
+      </li>
 
-    <div class="menu {{colapse}}" [ngClass]="{ hidden: navbar_hidden }">
-      <a mat-button routerLink="/">Início</a>
-      <a mat-button routerLink="/about">Sobre</a>
-      <a mat-button routerLink="/contact">Contato</a>
-    </div>
-  </div>
+      <li routerLink="/variants" routerLinkActive="active">
+        <i icon="variants"></i>
+      </li>
+
+      <li routerLink="/categorys" routerLinkActive="active">
+        <i icon="categorys"></i>
+      </li>
+
+      <li>
+        <i icon="logoff" (click)="logout()"></i>
+      </li>
+    </mat-drawer>
+    <mat-drawer-content>
+      <div class="side-bar-content">
+        <router-outlet *ngIf="!loading"></router-outlet>
+        <page-loading *ngIf="loading"></page-loading>
+      </div>
+    </mat-drawer-content>
+  </mat-drawer-container>
 </nav>
-
-<router-outlet></router-outlet>

@@ -21,6 +21,30 @@ const routes: Routes = [
         loadChildren: () =>
           import('./pages/home/home.module').then((m) => m.HomeModule),
       },
+      {
+        path: 'teams',
+        loadChildren: () =>
+          import('./pages/teams/teams.module').then((m) => m.TeamsModule),
+      },
+      {
+        path: 'users',
+        loadChildren: () =>
+          import('./pages/users/users.module').then((m) => m.UsersModule),
+      },
+      {
+        path: 'variants',
+        loadChildren: () =>
+          import('./pages/variants/variants.module').then(
+            (m) => m.VariantsModule
+          ),
+      },
+      {
+        path: 'categorys',
+        loadChildren: () =>
+          import('./pages/categorys/categorys.module').then(
+            (m) => m.CategorysModule
+          ),
+      },
     ],
   },
 ];

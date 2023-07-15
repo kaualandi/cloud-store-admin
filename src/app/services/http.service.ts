@@ -39,7 +39,7 @@ export class HttpService {
   private getHeaders(application: ApplicationsTypes = 'json') {
     const headers = {
       'Content-Type': `application/${application}`,
-      Authorization: 'token ' + this.storage.token,
+      Authorization: 'Bearer ' + this.storage.token,
     };
     return headers;
   }
@@ -51,7 +51,7 @@ export class HttpService {
       errorMessage = error.error.message;
     } else {
       // Erro ocorreu no lado do servidor
-      errorMessage = `Erro: ${error.status}: ${error.error.detail}`;
+      errorMessage = `Erro: ${error.status}: ${error.error.message}`;
     }
     this.snackbar.error(errorMessage);
 
@@ -130,7 +130,7 @@ export class HttpService {
    * @param params *opicinal* - Query parametros da requisição (itens depois do **?** na url)
    * @returns Retorna um Observable de sua requisição
    */
-  delete<T>(url: string, params?: HttpParams | BodyJson) {
+  delete<T>(url: string, params?: HttpParams) {
     const headers = this.getHeaders();
     return this.http
       .delete<T>(this.getUrl(url), { headers, params })
