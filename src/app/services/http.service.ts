@@ -44,19 +44,19 @@ export class HttpService {
     return headers;
   }
 
-  private handleError(error: HttpErrorResponse) {
+  private handleError = (error: HttpErrorResponse) => {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {
       // Erro ocorreu no lado do client
       errorMessage = error.error.message;
     } else {
       // Erro ocorreu no lado do servidor
-      errorMessage = `Erro: ${error.status}: ${error.error.message}`;
+      errorMessage = error.error.message;
     }
     this.snackbar.error(errorMessage);
 
     return throwError(() => errorMessage);
-  }
+  };
 
   /**
    * ### Método GET
