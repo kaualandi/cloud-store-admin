@@ -1,0 +1,15 @@
+<h1 matDialogTitle>{{data?.id ? 'Editar' : 'Adicionar'}}</h1>
+
+<form [formGroup]="form" (ngSubmit)="handleFormSubmit()">
+  <mat-dialog-content>
+    <div class="card-input">
+      <label for="name">Nome</label>
+      <input placeholder="Nome" id="name" name="name" formControlName="name">
+    </div>
+  </mat-dialog-content>
+
+  <mat-dialog-actions [attr.align]="'end'">
+    <button type="button" mat-button matDialogClose>Cancelar</button>
+    <button type="submit" class="primary" mat-button>Confirmar</button>
+  </mat-dialog-actions>
+</form>
