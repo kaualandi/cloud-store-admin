@@ -26,6 +26,13 @@
       //     }
       //   }
       // }
+      &.mat-row {
+        &.mat-no-data-row {
+          .mat-cell {
+            text-align: center;
+          }
+        }
+      }
 
       &.mat-header-row {
         height: 35px;
@@ -46,9 +53,40 @@
         color: var(--text-color);
         border: 0px solid transparent;
 
+        &.mat-column-image {
+          width: 90px;
+          figure {
+            padding: 5px 0;
+            display: flex;
+            align-items: center;
+            img {
+              width: 100%;
+            }
+          }
+        }
+
+        &.mat-column-created_at {
+          width: 150px;
+        }
+
+        &.mat-column-actions {
+          width: 150px;
+          .buttons {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+          }
+        }
+
         .buttons {
-          i {
+          button {
             cursor: pointer;
+            &.edit {
+              color: var(--green-color);
+            }
+            &.delete {
+              color: var(--red-color);
+            }
           }
         }
       }

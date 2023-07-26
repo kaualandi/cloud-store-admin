@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from './http.service';
-import { ITeams } from '../models/teams';
+import { ITeam } from '../models/teams';
 import { HttpParams } from '@angular/common/http';
 import { IPagedReq } from '../models/utils';
 import { environment } from 'src/environments/environment';
@@ -16,27 +16,27 @@ export class TeamsService {
       .set('page', page)
       .set('page_size', environment.page_size);
 
-    return this.http.get<IPagedReq<ITeams>>('teams', params);
+    return this.http.get<IPagedReq<ITeam>>('teams', params);
   }
 
-  postTeams(team: ITeams) {
+  postTeam(team: ITeam) {
     const body = {
       name: team.name,
-      email: team.url,
+      url: team.url,
     };
 
-    return this.http.post<ITeams[]>(`teams/`, body);
+    return this.http.post<ITeam[]>(`teams/`, body);
   }
 
-  patchTeams(id: number, team: ITeams) {
+  patchTeam(id: number, team: ITeam) {
     const body = {
       name: team.name,
-      email: team.url,
+      url: team.url,
     };
-    return this.http.patch<ITeams[]>(`teams/${id}`, body);
+    return this.http.patch<ITeam[]>(`teams/${id}`, body);
   }
 
-  deletTeams(id: number) {
-    return this.http.delete<ITeams[]>(`teams/${id}`);
+  deleteTeam(id: number) {
+    return this.http.delete<ITeam[]>(`teams/${id}`);
   }
 }

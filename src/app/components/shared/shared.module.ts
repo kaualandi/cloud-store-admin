@@ -9,9 +9,10 @@ import { PageLoadingComponent } from './page-loading/page-loading.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import { MessageComponent } from '../modals/message/message.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
-  imports: [CommonModule, MatDialogModule],
+  imports: [CommonModule, MatDialogModule, MatButtonModule],
   declarations: [
     LoadingComponent,
     PageLoadingComponent,
@@ -29,6 +30,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     InputFileDirective,
     InputNumberDirective,
     MessageComponent,
+    MatButtonModule,
   ],
 })
 export class SharedModule {}
