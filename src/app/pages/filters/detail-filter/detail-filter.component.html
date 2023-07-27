@@ -1,0 +1,21 @@
+<h1 matDialogTitle>{{data?.id ? 'Editar' : 'Adicionar'}}</h1>
+
+<form [formGroup]="form" (ngSubmit)="handleFormSubmit()">
+  <mat-dialog-content>
+    <div class="card-input">
+      <label for="name">Nome</label>
+      <input placeholder="Nome" id="name" name="name" formControlName="name">
+    </div>
+    <div class="card-input">
+      <label for="name">Categoria</label>
+      <mat-select placeholder="Categoria" id="category" name="category" formControlName="category_id">
+        <mat-option *ngFor="let category of categorys" [value]="category.id">{{category.name}}</mat-option>
+      </mat-select>
+    </div>
+  </mat-dialog-content>
+
+  <mat-dialog-actions [attr.align]="'end'">
+    <button type="button" mat-button matDialogClose>Cancelar</button>
+    <button type="submit" class="primary" mat-button>Confirmar</button>
+  </mat-dialog-actions>
+</form>

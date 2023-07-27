@@ -66,3 +66,7 @@ main {
   overflow: visible;
   vertical-align: -0.125em;
 }
+
+.cdk-overlay-connected-position-bounding-box {
+  z-index: 99999999 !important;
+}

@@ -41,7 +41,8 @@ $max-font-size: 52;
   span {
     @extend .fd-14;
   }
-  label {
+  label,
+  input {
     @extend .fd-14;
   }
   .mat-button {

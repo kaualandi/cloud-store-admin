@@ -64,7 +64,7 @@
 
   input,
   textarea,
-  select {
+  .mat-select {
     padding: 12px 16px;
     border-radius: 50px;
     border: 1px solid var(--primary-bg);
@@ -88,6 +88,10 @@
     &[type='file'] {
       display: none;
     }
+  }
+
+  .mat-select {
+    padding: 10px 16px;
   }
 
   .mat-button {
