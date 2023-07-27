@@ -5,25 +5,32 @@
         <img src="../../../assets/images/user_photo.png" alt="" />
       </figure>
 
-      <li routerLink="/users" routerLinkActive="active">
+      <button mat-button routerLink="/users" routerLinkActive="active" matTooltip="Usuários" matTooltipPosition="after">
         <i icon="users"></i>
-      </li>
+      </button>
 
-      <li routerLink="/teams" routerLinkActive="active">
+      <button mat-button routerLink="/teams" routerLinkActive="active" matTooltip="Times" matTooltipPosition="after">
         <i icon="teams"></i>
-      </li>
+      </button>
 
-      <li routerLink="/variants" routerLinkActive="active">
+      <button mat-button routerLink="/variants" routerLinkActive="active" matTooltip="Variantes"
+        matTooltipPosition="after">
         <i icon="variants"></i>
-      </li>
+      </button>
 
-      <li routerLink="/categorys" routerLinkActive="active">
+      <button mat-button routerLink="/categorys" routerLinkActive="active" matTooltip="Categorias"
+        matTooltipPosition="after">
         <i icon="categorys"></i>
-      </li>
+      </button>
 
-      <li>
-        <i icon="logoff" (click)="logout()"></i>
-      </li>
+      <button mat-button routerLink="/filters" routerLinkActive="active" matTooltip="Filtros"
+        matTooltipPosition="after">
+        <i icon="filters"></i>
+      </button>
+
+      <button mat-button (click)="logout()">
+        <i icon="logoff"></i>
+      </button>
     </mat-drawer>
     <mat-drawer-content>
       <div class="side-bar-content">

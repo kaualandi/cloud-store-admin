@@ -45,6 +45,11 @@ const routes: Routes = [
             (m) => m.CategorysModule
           ),
       },
+      {
+        path: 'filters',
+        loadChildren: () =>
+          import('./pages/filters/filters.module').then((m) => m.FiltersModule),
+      },
     ],
   },
 ];

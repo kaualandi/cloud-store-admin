@@ -15,6 +15,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MatButtonModule } from '@angular/material/button';
 import { SharedModule } from './components/shared/shared.module';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 registerLocaleData(localePt);
 
@@ -29,6 +30,7 @@ registerLocaleData(localePt);
     MatDialogModule,
     MatButtonModule,
     MatSidenavModule,
+    MatTooltipModule,
     SharedModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
