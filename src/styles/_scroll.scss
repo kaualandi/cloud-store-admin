@@ -12,3 +12,18 @@
   background: var(--primary-bg);
   border-radius: 6px;
 }
+
+.alt-bar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.alt-bar::-webkit-scrollbar-thumb {
+  background: var(--primary-bg);
+  border-radius: 6px;
+}
+
+.alt-bar::-webkit-scrollbar-track {
+  background: var(--main-color);
+  border-radius: 6px;
+}

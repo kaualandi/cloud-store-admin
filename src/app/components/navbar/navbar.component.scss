@@ -30,7 +30,6 @@ nav {
       aspect-ratio: 1/1;
       margin: 0 auto;
       border-radius: 50%;
-      margin-bottom: 50px;
 
       img {
         width: 100%;
@@ -39,6 +38,10 @@ nav {
         border-radius: 50%;
         box-shadow: 4px 4px 8px rgba(128, 128, 128, 0.4);
       }
+    }
+
+    .navigation {
+      overflow: auto;
     }
 
     button {
@@ -50,16 +53,11 @@ nav {
       justify-content: center;
       align-items: center;
       transition: var(--ts);
-
-      &:last-child {
-        position: absolute;
-        bottom: 0;
-      }
-
+      min-width: 60px;
+      padding: 0;
       i {
         font-size: 22px;
         color: var(--white-color);
-        padding: 10px 17px;
         transition: var(--ts);
       }
 
@@ -89,4 +87,11 @@ nav {
       padding: var(--navbar_space);
     }
   }
+}
+
+::ng-deep .mat-drawer-inner-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden !important;
 }
