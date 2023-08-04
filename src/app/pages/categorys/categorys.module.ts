@@ -8,6 +8,7 @@ import { SharedModule } from 'src/app/components/shared/shared.module';
 import { CategorysRoutingModule } from './categorys-routing.module';
 import { CategorysComponent } from './categorys.component';
 import { DetailCategoryComponent } from './detail-category/detail-category.component';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [CategorysComponent, DetailCategoryComponent],
@@ -17,6 +18,7 @@ import { DetailCategoryComponent } from './detail-category/detail-category.compo
     MatTableModule,
     SharedModule,
     MatDialogModule,
+    MatSelectModule,
     ReactiveFormsModule,
   ],
 })

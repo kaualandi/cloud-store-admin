@@ -19,7 +19,14 @@ export class CategorysComponent implements OnInit {
 
   loading = false;
 
-  displayedColumns: string[] = ['name', 'created_at', 'actions'];
+  displayedColumns: string[] = [
+    'name',
+    'section',
+    'filters',
+    'created_at',
+    'actions',
+  ];
+
   dataSource: ICategory[] = [];
   page = 1;
   next = false;

@@ -6,12 +6,6 @@
       <label for="name">Nome</label>
       <input placeholder="Nome" id="name" name="name" formControlName="name">
     </div>
-    <div class="card-input">
-      <label for="section">Sessão</label>
-      <mat-select placeholder="Nome" id="section" name="section" formControlName="section">
-        <mat-option *ngFor="let section of sections" [value]="section.id">{{section.name}}</mat-option>
-      </mat-select>
-    </div>
   </mat-dialog-content>
 
   <mat-dialog-actions [attr.align]="'end'">
