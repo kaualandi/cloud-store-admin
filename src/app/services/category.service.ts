@@ -29,6 +29,7 @@ export class CategoryService {
   postCategory(category: ICategory) {
     const body = {
       name: category.name,
+      section_id: category.section_id,
     };
 
     return this.http.post<ICategory[]>(`categorys/`, body);
@@ -37,6 +38,7 @@ export class CategoryService {
   patchCategory(id: number, category: ICategory) {
     const body = {
       name: category.name,
+      section_id: category.section_id,
     };
     return this.http.patch<ICategory[]>(`categorys/${id}`, body);
   }

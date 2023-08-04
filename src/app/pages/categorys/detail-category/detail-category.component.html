@@ -8,7 +8,7 @@
     </div>
     <div class="card-input">
       <label for="section">Sessão</label>
-      <mat-select placeholder="Nome" id="section" name="section" formControlName="section">
+      <mat-select placeholder="Nome" id="section" name="section" formControlName="section_id">
         <mat-option *ngFor="let section of sections" [value]="section.id">{{section.name}}</mat-option>
       </mat-select>
     </div>

@@ -19,7 +19,7 @@
       <ng-container matColumnDef="filters">
         <th mat-header-cell *matHeaderCellDef>Filtros</th>
         <td mat-cell *matCellDef="let element">{{ element.filters?.length }}
-          filtro{{element.filters?.length !== 1 && 's'}}</td>
+          filtro{{element.filters?.length !== 1 ? 's' : ''}}</td>
       </ng-container>
 
       <ng-container matColumnDef="created_at">

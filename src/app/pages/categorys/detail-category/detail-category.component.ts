@@ -20,7 +20,7 @@ export class DetailCategoryComponent implements OnInit {
 
   form = this.fb.group({
     name: [this.data?.name || '', [Validators.required]],
-    section: [this.data?.section_id || '', [Validators.required]],
+    section_id: [this.data?.section_id || '', [Validators.required]],
   });
 
   sections: ISection[] = [];
@@ -42,7 +42,7 @@ export class DetailCategoryComponent implements OnInit {
       this.form.markAllAsTouched();
     }
 
-    const data = this.form.value as Partial<ICategory>;
+    const data = this.form.value as ICategory;
     if (this.data?.id) data.id = this.data.id;
 
     this.dialogRef.close(data);
