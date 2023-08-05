@@ -1,5 +1,3 @@
-import { Router } from '@angular/router';
-import { StorageService } from './../../services/storage.service';
 import {
   Component,
   ElementRef,
@@ -9,9 +7,10 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
+import { IUser } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
 import { HttpService } from 'src/app/services/http.service';
-import { IUser } from 'src/app/models/user';
+import { StorageService } from './../../services/storage.service';
 
 @Component({
   selector: 'app-navbar',
@@ -25,8 +24,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   constructor(
     private authService: AuthService,
     private storage: StorageService,
-    private http: HttpService,
-    private router: Router
+    private http: HttpService
   ) {}
 
   loading = false;
