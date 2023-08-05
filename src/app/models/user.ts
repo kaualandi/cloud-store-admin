@@ -18,6 +18,8 @@ export interface IUser {
   email: string;
   is_admin: boolean;
   name: string;
+  phone: string;
+  profile_url?: string;
   updated_at?: string;
   created_at?: string;
 }

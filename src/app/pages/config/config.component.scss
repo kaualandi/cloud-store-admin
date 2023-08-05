@@ -1,0 +1,44 @@
+.config-main {
+  .user-section {
+    h2 {
+      margin: 0;
+    }
+    form {
+      padding: 1rem;
+      border-radius: var(--br);
+      background-color: var(--primary-bg);
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      .card-input {
+        &:first-child {
+          width: fit-content;
+        }
+        .image {
+          border-radius: 50%;
+        }
+        input {
+          background-color: var(--secondary-bg);
+        }
+        & + .card-input {
+          margin: 0;
+        }
+      }
+
+      .user-infors {
+        display: grid;
+        gap: 0.5rem;
+
+        grid-template-columns: repeat(2, 1fr);
+        .buttons {
+          display: flex;
+          align-items: flex-end;
+          gap: 0.5rem;
+          button {
+            height: fit-content;
+          }
+        }
+      }
+    }
+  }
+}

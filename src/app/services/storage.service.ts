@@ -11,7 +11,7 @@ export class StorageService {
   constructor(private cookieService: CookieService, private router: Router) {}
 
   UserSubject = new Subject<void>();
-  myUser: IUser = {} as IUser;
+  private myUser: IUser = {} as IUser;
 
   get myself() {
     return this.myUser;

@@ -1,1 +1,43 @@
-<p>config works!</p>
+<main class="config-main">
+  <header>
+    <h1>Configurações</h1>
+  </header>
+
+  <section class="user-section">
+    <h2>Usuário</h2>
+
+    <form (ngSubmit)="handleEditUser()" [formGroup]="userForm">
+      <div class="card-input">
+        <div class="image">
+          <img *ngIf="userForm.value.profile_url" [src]="userForm.value.profile_url" alt="">
+          <img src="../../../assets/images/user_photo.png" alt="">
+
+          <label *ngIf="!userForm.disabled" for="image">Alterar imagem</label>
+        </div>
+        <input [disabled]="userForm.disabled" type="file" inputFile (upload)="handleImageSelect($event)" id="image"
+          name="image" accept="image/*">
+      </div>
+
+      <div class="user-infors">
+        <div class="card-input">
+          <label for="name">Nome</label>
+          <input placeholder="Nome" id="name" name="name" formControlName="name">
+        </div>
+
+        <div class="card-input">
+          <label for="email">E-mail</label>
+          <input placeholder="E-mail" id="email" name="email" formControlName="email">
+        </div>
+
+        <div class="card-input">
+          <label for="phone">Celular</label>
+          <input placeholder="Celular" id="phone" name="phone" mask="(00) 00000-0000" formControlName="phone">
+        </div>
+
+        <div class="buttons">
+          <button mat-button class="primary">{{editUser ? 'Salvar' : 'Editar'}}</button>
+        </div>
+      </div>
+    </form>
+  </section>
+</main>

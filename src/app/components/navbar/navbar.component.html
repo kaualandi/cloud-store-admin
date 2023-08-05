@@ -2,7 +2,8 @@
   <mat-drawer-container class="example-container">
     <mat-drawer mode="side" opened>
       <figure routerLink="/config" routerLinkActive="active">
-        <img src="../../../assets/images/user_photo.png" alt="" />
+        <img *ngIf="!user?.profile_url" src="../../../assets/images/user_photo.png" alt="" />
+        <img *ngIf="user?.profile_url" [src]="user?.profile_url" alt="" />
       </figure>
 
       <div class="navigation alt-bar">
@@ -44,6 +45,11 @@
           matTooltipPosition="after">
           <i icon="banners"></i>
         </button>
+
+        <a mat-button href="http://24.199.91.192:5555/" target="_blank" matTooltip="Prisma Studio"
+          matTooltipPosition="after">
+          <i icon="prisma"></i>
+        </a>
       </div>
 
 
