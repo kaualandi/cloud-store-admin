@@ -32,6 +32,13 @@ const routes: Routes = [
           import('./pages/users/users.module').then((m) => m.UsersModule),
       },
       {
+        path: 'products',
+        loadChildren: () =>
+          import('./pages/products/products.module').then(
+            (m) => m.ProductsModule
+          ),
+      },
+      {
         path: 'variants',
         loadChildren: () =>
           import('./pages/variants/variants.module').then(

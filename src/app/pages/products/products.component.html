@@ -1,0 +1,76 @@
+<main class="table-section">
+  <header>
+    <h1>Produtos</h1>
+    <button mat-button class="primary" (click)="detailProduct()">Adicionar</button>
+  </header>
+
+  <section *ngIf="!loading" class="table-container">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="image">
+        <th mat-header-cell *matHeaderCellDef>Imagem</th>
+        <td mat-cell *matCellDef="let element">
+          <figure *ngIf="element.images.length">
+            <img [src]="element.images[0].url" alt="Imagem do produto">
+          </figure>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Nome</th>
+        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="base_price">
+        <th mat-header-cell *matHeaderCellDef>Preço base</th>
+        <td mat-cell *matCellDef="let element">{{ element.base_price | currency }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="team">
+        <th mat-header-cell *matHeaderCellDef>Time</th>
+        <td mat-cell *matCellDef="let element">{{ element.team?.name }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="variants">
+        <th mat-header-cell *matHeaderCellDef>Variantes</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.variants?.length }}
+          variante{{element.variants?.length !== 1 ? 's' : ''}}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="created_at">
+        <th mat-header-cell *matHeaderCellDef>Data de criação</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.created_at | date : 'dd/MM/yyyy' }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+          <div class="buttons">
+            <button mat-icon-button class="edit" (click)="detailProduct(element)">
+              <i icon="edit"></i>
+            </button>
+            <button mat-icon-button class="delete" (click)="confirmDelete(element)">
+              <i icon="delete"></i>
+            </button>
+          </div>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="6">Nenhum produto disponível.</td>
+      </tr>
+    </table>
+  </section>
+  <section *ngIf="!loading" class="pagination-container">
+    <pagination (page_change)="getProducts($event)" [next]="next" [back]="prev" [current]="page" [total]="total_page">
+    </pagination>
+  </section>
+
+  <page-loading *ngIf="loading"></page-loading>
+</main>
