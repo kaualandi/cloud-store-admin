@@ -1,6 +1,9 @@
 import { FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { StorageService } from 'src/app/services/storage.service';
+import { AuthService } from 'src/app/services/auth.service';
+import { IUser } from 'src/app/models/user';
+import { SnackbarService } from 'src/app/services/snackbar.service';
 
 @Component({
   selector: 'app-config',
@@ -8,11 +11,16 @@ import { StorageService } from 'src/app/services/storage.service';
   styleUrls: ['./config.component.scss'],
 })
 export class ConfigComponent implements OnInit {
-  constructor(private storage: StorageService, private fb: FormBuilder) {}
+  constructor(
+    private storage: StorageService,
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private snackbar: SnackbarService
+  ) {}
 
   user = this.storage.myself;
-
   editUser = false;
+  loadingUser = false;
   userForm = this.fb.group({
     profile_url: [''],
     name: [{ value: '', disabled: true }],
@@ -41,6 +49,28 @@ export class ConfigComponent implements OnInit {
     if (!this.editUser) {
       this.userForm.enable();
       this.editUser = true;
+      return;
     }
+
+    if (this.userForm.invalid) {
+      this.userForm.markAllAsTouched();
+      return;
+    }
+
+    this.loadingUser = true;
+    this.userForm.disable();
+
+    this.authService.updateMe(this.userForm.value as IUser).subscribe({
+      next: (data) => {
+        this.editUser = false;
+        this.storage.myself = data;
+        this.loadingUser = false;
+        this.snackbar.success('Perfil atualizado com sucesso!');
+        this.storage.changeUser();
+      },
+      error: () => {
+        this.loadingUser = false;
+      },
+    });
   }
 }
