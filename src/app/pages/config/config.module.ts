@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { ConfigRoutingModule } from './config-routing.module';
 import { ConfigComponent } from './config.component';
 import { NgxMaskModule } from 'ngx-mask';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [ConfigComponent],
@@ -14,6 +15,7 @@ import { NgxMaskModule } from 'ngx-mask';
     ConfigRoutingModule,
     SharedModule,
     ReactiveFormsModule,
+    MatSelectModule,
     NgxMaskModule.forRoot(),
   ],
 })

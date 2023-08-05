@@ -35,8 +35,90 @@
         </div>
 
         <div class="buttons">
-          <button mat-button class="primary">{{editUser ? 'Salvar' : 'Editar'}}</button>
+          <button mat-button class="primary" [disabled]="loadingUser">
+            {{editUser ? 'Salvar' : 'Editar'}} <loading *ngIf="loadingUser"></loading>
+          </button>
+          <button mat-button type="button" *ngIf="editUser" (click)="cancelUserEdit()">Cancelar</button>
         </div>
+      </div>
+    </form>
+  </section>
+
+  <section class="site-definitions">
+    <h2>Definições do site</h2>
+
+    <form (ngSubmit)="handleEditConfig()" [formGroup]="configForm">
+      <div class="card-input">
+        <label for="cnpj">CNPJ</label>
+        <input placeholder="CNPJ" id="cnpj" name="cnpj" mask="00.000.000/0000-00" formControlName="cnpj">
+      </div>
+
+      <div class="card-input">
+        <label for="customization_fee">Taxa de personalização</label>
+        <input placeholder="Taxa de personalização" id="customization_fee" name="customization_fee"
+          formControlName="customization_fee" prefix="R$ " mask="separator.2" thousandSeparator="." decimalMarker=",">
+      </div>
+
+      <div class="card-input">
+        <label for="delivery_fee">Frete gratis acima de</label>
+        <input placeholder="Frete gratis acima de" id="delivery_fee" name="delivery_fee" formControlName="delivery_fee"
+          prefix="R$ " mask="separator.2" thousandSeparator="." decimalMarker=",">
+      </div>
+
+      <div class="card-input">
+        <label for="free_shipping">Frete grátis</label>
+        <mat-select placeholder="Frete grátis" id="free_shipping" name="free_shipping" formControlName="free_shipping">
+          <mat-option [value]="true">Sim</mat-option>
+          <mat-option [value]="false">Não</mat-option>
+        </mat-select>
+      </div>
+
+      <div class="card-input">
+        <label for="installment_limit">Limite de parcelas</label>
+        <input placeholder="Limite de parcelas" id="installment_limit" name="installment_limit"
+          formControlName="installment_limit">
+      </div>
+
+      <div class="card-input">
+        <label for="email">E-mail</label>
+        <input placeholder="E-mail" id="email" name="email" formControlName="email">
+      </div>
+
+      <div class="card-input">
+        <label for="phone">Celular</label>
+        <input placeholder="Celular" id="phone" name="phone" mask="(00) 00000-0000" formControlName="phone">
+      </div>
+
+      <div class="card-input">
+        <label for="facebook">Facebook</label>
+        <input placeholder="Facebook" id="facebook" name="facebook" formControlName="facebook">
+      </div>
+
+      <div class="card-input">
+        <label for="instagram">Instagram</label>
+        <input placeholder="Instagram" id="instagram" prefix="@" name="instagram" formControlName="instagram">
+      </div>
+
+      <div class="card-input">
+        <label for="tiktok">TikTok</label>
+        <input placeholder="TikTok" id="tiktok" prefix="@" name="tiktok" formControlName="tiktok">
+      </div>
+
+      <div class="card-input">
+        <label for="twitter">X (Twitter)</label>
+        <input placeholder="X" id="twitter" prefix="@" name="twitter" formControlName="twitter">
+      </div>
+
+      <div class="card-input">
+        <label for="whatsapp">Whatsapp</label>
+        <input placeholder="Whatsapp" id="whatsapp" name="whatsapp" mask="(00) 00000-0000" formControlName="whatsapp">
+      </div>
+
+      <div class="buttons">
+        <button mat-button class="primary" [disabled]="loadingConfig">
+          {{editConfig ? 'Salvar' : 'Editar'}} <loading *ngIf="loadingConfig"></loading>
+        </button>
+        <button mat-button type="button" *ngIf="editConfig" (click)="cancelConfigEdit()">Cancelar</button>
       </div>
     </form>
   </section>
