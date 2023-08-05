@@ -1,0 +1,51 @@
+<main class="table-section">
+  <header>
+    <h1>Artigos</h1>
+    <button mat-button class="primary" (click)="detailArticle()">Adicionar</button>
+  </header>
+
+  <section *ngIf="!loading" class="table-container">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="image_lg">
+        <th mat-header-cell *matHeaderCellDef>Imagem</th>
+        <td mat-cell *matCellDef="let element">
+          <figure>
+            <img [src]="element.image" alt="artigo">
+          </figure>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="created_at">
+        <th mat-header-cell *matHeaderCellDef>Data de criação</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.created_at | date : 'dd/MM/yyyy' }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+          <div class="buttons">
+            <button mat-icon-button class="delete" (click)="confirmDelete(element)">
+              <i icon="delete"></i>
+            </button>
+          </div>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">Nenhum artigo disponível.</td>
+      </tr>
+    </table>
+  </section>
+  <section *ngIf="!loading" class="pagination-container">
+    <pagination (page_change)="getArticles($event)" [next]="next" [back]="prev" [current]="page" [total]="total_page">
+    </pagination>
+  </section>
+
+  <page-loading *ngIf="loading"></page-loading>
+</main>

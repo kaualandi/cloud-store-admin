@@ -35,6 +35,9 @@
     width: 120px;
     margin: 0 auto;
     position: relative;
+    border: 2px dashed rgba(0, 0, 0, 0.2);
+    transition: var(--ts);
+    overflow: hidden;
     label {
       position: absolute;
       top: 0;
@@ -50,7 +53,10 @@
       opacity: 0;
       transition: var(--ts);
       cursor: pointer;
-      &:hover {
+    }
+    &:hover {
+      border-color: rgba(0, 0, 0, 0.6);
+      label {
         opacity: 1;
       }
     }

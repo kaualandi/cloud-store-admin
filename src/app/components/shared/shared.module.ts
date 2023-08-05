@@ -1,3 +1,4 @@
+import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
@@ -10,9 +11,15 @@ import { PaginationComponent } from './pagination/pagination.component';
 import { MessageComponent } from '../modals/message/message.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
+import { DetailImageComponent } from './detail-image/detail-image.component';
 
 @NgModule({
-  imports: [CommonModule, MatDialogModule, MatButtonModule],
+  imports: [
+    CommonModule,
+    MatDialogModule,
+    MatButtonModule,
+    ReactiveFormsModule,
+  ],
   declarations: [
     LoadingComponent,
     PageLoadingComponent,
@@ -21,6 +28,7 @@ import { MatButtonModule } from '@angular/material/button';
     InputFileDirective,
     InputNumberDirective,
     MessageComponent,
+    DetailImageComponent,
   ],
   exports: [
     LoadingComponent,

@@ -1,7 +1,7 @@
 .table-container {
   width: 100%;
   overflow: auto;
-  padding: 0 15px 15px;
+  padding: 0 5px;
   border-radius: 5px;
 
   .mat-table {
@@ -53,7 +53,8 @@
         color: var(--text-color);
         border: 0px solid transparent;
 
-        &.mat-column-image {
+        &.mat-column-image,
+        &.mat-column-image_lg {
           width: 90px;
           figure {
             padding: 5px 0;
@@ -62,6 +63,17 @@
             justify-content: center;
             img {
               height: 46px;
+              border-radius: 4px;
+            }
+          }
+        }
+
+        &.mat-column-image_lg {
+          width: 120px;
+          figure {
+            justify-content: flex-start;
+            img {
+              height: 120px;
             }
           }
         }
@@ -70,13 +82,17 @@
           width: 110px;
         }
 
-        &.mat-column-actions {
+        &.mat-column-actions,
+        &.mat-column-action {
           width: 150px;
           .buttons {
             display: flex;
             align-items: center;
             justify-content: flex-end;
           }
+        }
+        &.mat-column-action {
+          width: 75px;
         }
 
         .buttons {

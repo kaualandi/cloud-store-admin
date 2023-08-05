@@ -57,6 +57,13 @@ const routes: Routes = [
         loadChildren: () =>
           import('./pages/filters/filters.module').then((m) => m.FiltersModule),
       },
+      {
+        path: 'articles',
+        loadChildren: () =>
+          import('./pages/articles/articles.module').then(
+            (m) => m.ArticlesModule
+          ),
+      },
     ],
   },
 ];

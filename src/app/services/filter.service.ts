@@ -26,19 +26,19 @@ export class FilterService {
     return this.http.get<IPagedReq<ICategory>>('categorys', params);
   }
 
-  postFilter(category: IFilter) {
+  postFilter(article: IFilter) {
     const body = {
-      name: category.name,
-      category_id: category.category_id,
+      name: article.name,
+      category_id: article.category_id,
     };
 
     return this.http.post<IFilter[]>(`filters/`, body);
   }
 
-  patchFilter(id: number, category: IFilter) {
+  patchFilter(id: number, article: IFilter) {
     const body = {
-      name: category.name,
-      category_id: category.category_id,
+      name: article.name,
+      category_id: article.category_id,
     };
     return this.http.patch<IFilter[]>(`filters/${id}`, body);
   }
