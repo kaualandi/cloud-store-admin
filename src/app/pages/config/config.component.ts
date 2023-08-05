@@ -36,7 +36,6 @@ export class ConfigComponent implements OnInit {
       phone: this.user?.phone || '',
     });
     this.userForm.disable();
-    console.log(this.userForm.disabled);
   }
 
   handleImageSelect(image: string) {
@@ -70,6 +69,7 @@ export class ConfigComponent implements OnInit {
       },
       error: () => {
         this.loadingUser = false;
+        this.storage.changeUser();
       },
     });
   }
