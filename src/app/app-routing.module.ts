@@ -64,6 +64,16 @@ const routes: Routes = [
             (m) => m.ArticlesModule
           ),
       },
+      {
+        path: 'banners',
+        loadChildren: () =>
+          import('./pages/banners/banners.module').then((m) => m.BannersModule),
+      },
+      {
+        path: 'config',
+        loadChildren: () =>
+          import('./pages/config/config.module').then((m) => m.ConfigModule),
+      },
     ],
   },
 ];
