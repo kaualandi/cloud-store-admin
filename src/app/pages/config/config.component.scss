@@ -76,7 +76,11 @@
     &.site-definitions {
       form {
         display: grid;
+        grid-template-columns: repeat(4, 1fr);
         gap: 1rem;
+        @include media('<=1090px') {
+          grid-template-columns: repeat(2, 1fr);
+        }
         @include media('<=630px') {
           grid-template-columns: repeat(1, 1fr);
         }
