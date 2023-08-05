@@ -4,7 +4,10 @@ import { MessageComponent } from 'src/app/components/modals/message/message.comp
 import { IProduct } from 'src/app/models/product';
 import { ProductsService } from 'src/app/services/products.service';
 import { environment } from 'src/environments/environment';
-import { DetailProductComponent } from './detail-product/detail-product.component';
+import {
+  CONFIG,
+  DetailProductComponent,
+} from './detail-product/detail-product.component';
 
 @Component({
   selector: 'app-products',
@@ -57,7 +60,10 @@ export class ProductsComponent implements OnInit {
   }
 
   detailProduct(data?: IProduct) {
-    const dialogRef = this.dialog.open(DetailProductComponent, { data });
+    const dialogRef = this.dialog.open(DetailProductComponent, {
+      ...CONFIG,
+      data,
+    });
     dialogRef.afterClosed().subscribe((result: IProduct | undefined) => {
       if (!result) return;
       if (result.id) {

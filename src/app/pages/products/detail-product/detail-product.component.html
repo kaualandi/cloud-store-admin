@@ -8,10 +8,86 @@
     </div>
 
     <div class="card-input">
-      <div class="image">
-        <label for="image">Alterar imagem</label>
+      <label for="description">Descrição</label>
+      <input placeholder="Descrição" id="description" name="description" formControlName="description">
+    </div>
+
+    <div class="card-input">
+      <label for="base_price">Preço base</label>
+      <input placeholder="Preço base" id="base_price" name="base_price" formControlName="base_price" prefix="R$ "
+        mask="separator.2" thousandSeparator="." decimalMarker=",">
+    </div>
+
+    <div class="card-input">
+      <label for="trending">Em alta</label>
+      <mat-select placeholder="Em alta" id="trending" name="trending" formControlName="trending">
+        <mat-option [value]="true">Sim</mat-option>
+        <mat-option [value]="false">Não</mat-option>
+      </mat-select>
+    </div>
+
+    <div class="card-input">
+      <label for="discount">Desconto</label>
+      <input placeholder="Desconto" id="discount" name="discount" formControlName="discount" mask="00" suffix="%">
+    </div>
+
+    <div class="card-input">
+      <label for="team_id">Time</label>
+      <mat-select placeholder="Time" id="team_id" name="team_id" formControlName="team_id">
+        <mat-option *ngFor="let team of teams" [value]="team.id" class="with-image">
+          <img [src]="team.url" alt="">
+          {{team.name}}
+        </mat-option>
+      </mat-select>
+    </div>
+
+    <div class="card-input">
+      <label for="filter">Filtros</label>
+      <mat-chip-list #chipFilterList aria-label="Fruit selection">
+        <mat-chip *ngFor="let filter of selected_filters" (removed)="removeSelectedFilter(filter.id)">
+          {{filter.name}}
+          <button matChipRemove>
+            <i icon="xmark"></i>
+          </button>
+        </mat-chip>
+        <input placeholder="Novo filtro..." formControlName="filter" [matAutocomplete]="filterAuto"
+          [matChipInputFor]="chipFilterList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes">
+      </mat-chip-list>
+      <mat-autocomplete #filterAuto="matAutocomplete" (optionSelected)="selectFilter($event)">
+        <mat-option *ngFor="let filter of filters" [value]="filter">
+          {{ filter.name }}
+        </mat-option>
+      </mat-autocomplete>
+    </div>
+
+    <div class="card-input">
+      <label for="variant">Variantes</label>
+      <mat-chip-list #chipList aria-label="Fruit selection">
+        <mat-chip *ngFor="let variant of variants; let iVar = index" (removed)="removeSelectedVariant(iVar)">
+          {{variant.name}}
+          <button matChipRemove>
+            <i icon="xmark"></i>
+          </button>
+        </mat-chip>
+        <input placeholder="Nova variante..." [matChipInputFor]="chipList" formControlName="variant"
+          [matChipInputSeparatorKeyCodes]="separatorKeysCodes" (matChipInputTokenEnd)="addVariant($event)">
+      </mat-chip-list>
+    </div>
+
+    <div class="card-input">
+      <label for="image">Imagens</label>
+      <div class="image-list">
+        <div dragInDrop (fileDropped)="handleImageDrop($event)" class="image">
+          <label for="image">Arraste ou clique</label>
+        </div>
+        <div class="image" *ngFor="let image of images; let iImage = index">
+          <img [src]="image" alt="">
+          <button mat-button (click)="handleRemoveImage(iImage)">
+            <i icon="xmark"></i>
+          </button>
+        </div>
+        <input type="file" inputFile (upload)="handleImageSelect($event)" id="image" name="image" accept="image/*">
       </div>
-      <input type="file" inputFile (upload)="handleImageSelect($event)" id="image" name="image" accept="image/*">
     </div>
   </mat-dialog-content>
 

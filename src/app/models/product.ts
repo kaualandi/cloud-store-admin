@@ -1,7 +1,10 @@
-export interface ProductFilter {
+import { IFilter } from './filters';
+
+export interface IProductVariant {
   id: number;
   product_id: number;
-  filter_id: number;
+  name: string;
+  is_active: boolean;
   created_at: string;
   updated_at: string;
 }
@@ -27,8 +30,8 @@ export interface IProduct {
   created_at: string;
   updated_at: string;
   images: ProductImage[];
-  variants: [];
-  filters: [];
+  variants: IProductVariant[];
+  filters: IFilter[];
   _count: {
     variants: number;
     images: number;

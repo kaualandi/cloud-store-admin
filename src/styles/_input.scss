@@ -112,3 +112,14 @@
 .mat-form-field-infix {
   display: flex;
 }
+
+.with-image .mat-option-text {
+  display: flex !important;
+  align-items: center;
+  gap: 0.2rem;
+  img {
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+  }
+}

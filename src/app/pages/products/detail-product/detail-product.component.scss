@@ -1,0 +1,40 @@
+::ng-deep .card-input {
+  .image {
+    label {
+      opacity: 1;
+      padding: 0;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+  }
+  .image-list {
+    display: flex;
+    gap: 0.5rem;
+    padding-bottom: 1rem;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    .image {
+      margin: 0;
+      button {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        top: 0;
+        border-radius: var(--br);
+        opacity: 0;
+        background-color: var(--text-color);
+        transition: var(--ts);
+        color: var(--white-color);
+        .mat-button-wrapper {
+          font-size: 2rem !important;
+        }
+      }
+      &:hover {
+        button {
+          opacity: 0.6;
+        }
+      }
+    }
+  }
+}
