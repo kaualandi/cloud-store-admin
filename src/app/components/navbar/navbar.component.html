@@ -1,5 +1,8 @@
 <nav>
-  <mat-drawer-container class="example-container">
+  <div *ngIf="user?.profile_url" class="tag-name">
+    Bem vindo de volta, {{ user?.name }}!
+  </div>
+  <mat-drawer-container>
     <mat-drawer mode="side" opened>
       <figure routerLink="/config" routerLinkActive="active">
         <img *ngIf="!user?.profile_url" src="../../../assets/images/user_photo.png" alt="" />
