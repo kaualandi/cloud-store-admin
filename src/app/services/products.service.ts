@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpService } from './http.service';
+import { BodyJson, HttpService } from './http.service';
 import { HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { IPagedReq } from '../models/utils';
@@ -36,14 +36,40 @@ export class ProductsService {
   }
 
   postProduct(product: IProduct) {
-    const body = new HttpParams()
-      .set('name', product.name)
-      .set('base_price', product.base_price);
+    const filtersId = product.filters.map((filter) => filter.id);
+    const variantsId = product.variants.map((variant) => variant.id);
+    const images = product.images.map((image) => image.url);
+
+    const body = {
+      name: product.name,
+      description: product.description,
+      base_price: product.base_price,
+      trending: product.trending,
+      discount: product.discount,
+      team_id: product.team_id,
+      filters: filtersId,
+      variants: variantsId,
+      images,
+    } as BodyJson;
     return this.http.post<IProduct[]>(`products/`, body);
   }
 
   patchProduct(id: number, product: IProduct) {
-    const body = new HttpParams();
+    const filtersId = product.filters.map((filter) => filter.id);
+    const variantsId = product.variants.map((variant) => variant.id);
+    const images = product.images.map((image) => image.url);
+
+    const body = {
+      name: product.name,
+      description: product.description,
+      base_price: product.base_price,
+      trending: product.trending,
+      discount: product.discount,
+      team_id: product.team_id,
+      filters: filtersId,
+      variants: variantsId,
+      images,
+    } as BodyJson;
     return this.http.patch<IProduct[]>(`products/${id}`, body);
   }
 

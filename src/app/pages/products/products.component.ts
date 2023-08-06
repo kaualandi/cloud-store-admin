@@ -100,7 +100,9 @@ export class ProductsComponent implements OnInit {
 
   confirmDelete(data: IProduct) {
     const dialogRef = this.dialog.open(MessageComponent, {
-      data: { message: `Deseja realmente excluir ${data.name}?` },
+      data: {
+        message: `Deseja realmente excluir ${data.name}?<br>Isso irá excluir tudo relacionado a ele,<br>como as imagens e variantes.`,
+      },
     });
 
     dialogRef.afterClosed().subscribe((result: boolean) => {

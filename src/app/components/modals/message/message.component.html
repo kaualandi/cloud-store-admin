@@ -1,5 +1,5 @@
 <main id="cookie-modal">
-  <mat-dialog-content> {{data.message}} </mat-dialog-content>
+  <mat-dialog-content [innerHTML]="data.message"></mat-dialog-content>
 
   <mat-dialog-actions [attr.align]="'end'">
     <button class="alt" mat-button [mat-dialog-close]="false">Cancelar</button>

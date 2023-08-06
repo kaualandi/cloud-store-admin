@@ -10,7 +10,14 @@ import { SnackbarService } from './snackbar.service';
 import { environment } from 'src/environments/environment';
 
 export interface BodyJson {
-  [key: string]: string | number | boolean | BodyJson | BodyJson[];
+  [key: string]:
+    | string
+    | string[]
+    | number
+    | number[]
+    | boolean
+    | BodyJson
+    | BodyJson[];
 }
 
 type ApplicationsTypes = 'json' | 'x-www-form-urlencoded';
