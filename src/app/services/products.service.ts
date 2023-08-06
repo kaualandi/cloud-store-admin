@@ -37,7 +37,7 @@ export class ProductsService {
 
   postProduct(product: IProduct) {
     const filtersId = product.filters.map((filter) => filter.id);
-    const variantsId = product.variants.map((variant) => variant.id);
+    const variantsId = product.variants.map((variant) => variant.name);
     const images = product.images.map((image) => image.url);
 
     const body = {

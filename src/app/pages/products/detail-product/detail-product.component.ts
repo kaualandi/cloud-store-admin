@@ -37,9 +37,9 @@ export class DetailProductComponent implements OnInit {
   form = this.fb.group({
     name: ['', [Validators.required]],
     description: ['', [Validators.required]],
-    base_price: ['', [Validators.required]],
+    base_price: [0, [Validators.required]],
     trending: [false],
-    discount: [''],
+    discount: [0],
     team_id: ['', [Validators.required]],
     filter: [''],
     variant: [''],
