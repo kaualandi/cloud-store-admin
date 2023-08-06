@@ -14,7 +14,7 @@
 
     <div class="card-input">
       <label for="base_price">Preço base</label>
-      <input placeholder="Preço base" id="base_price" name="base_price" formControlName="base_price" prefix="R$ "
+      <input placeholder="Preço base" id="base_price" name="base_price" formControlName="base_price" [prefix]="'R$ '"
         mask="separator.2" thousandSeparator="." decimalMarker=",">
     </div>
 

@@ -13,6 +13,7 @@ import { ProductsRoutingModule } from './products-routing.module';
 import { ProductsComponent } from './products.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { DragInDropDirective } from 'src/app/directives/drag-in-drop.directive';
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { DragInDropDirective } from 'src/app/directives/drag-in-drop.directive';
     MatChipsModule,
     MatAutocompleteModule,
     MatFormFieldModule,
+    NgxMaskModule.forRoot(),
   ],
 })
 export class ProductsModule {}
