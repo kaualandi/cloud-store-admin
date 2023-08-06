@@ -55,7 +55,7 @@
       </mat-chip-list>
       <mat-autocomplete #filterAuto="matAutocomplete" (optionSelected)="selectFilter($event)">
         <mat-option *ngFor="let filter of filters" [value]="filter">
-          {{ filter.name }}
+          {{ filter.name }} - {{filter.category.name}}
         </mat-option>
       </mat-autocomplete>
     </div>
