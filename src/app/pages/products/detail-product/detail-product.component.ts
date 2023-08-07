@@ -9,6 +9,7 @@ import { IFilter } from 'src/app/models/filters';
 import { IProduct, IProductVariant } from 'src/app/models/product';
 import { ITeam } from 'src/app/models/teams';
 import { ProductsService } from 'src/app/services/products.service';
+import { CompressorService } from './../../../services/compressor.service';
 
 export const CONFIG = {
   width: '100%',
@@ -26,7 +27,8 @@ export class DetailProductComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: IProduct | undefined,
     private dialogRef: MatDialogRef<DetailProductComponent>,
     private productsService: ProductsService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private compressorService: CompressorService
   ) {}
 
   separatorKeysCodes: number[] = [ENTER, COMMA];
@@ -74,15 +76,12 @@ export class DetailProductComponent implements OnInit {
 
   handleImageDrop(files: FileList) {
     if (files.length === 0) return;
-
     for (let i = 0; i < files.length; i++) {
       const file = files.item(i);
       if (file?.type.includes('image')) {
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = () => {
-          this.handleImageSelect(reader.result as string);
-        };
+        this.compressorService.compress(file).subscribe((res) => {
+          this.handleImageSelect(res);
+        });
       }
     }
   }
