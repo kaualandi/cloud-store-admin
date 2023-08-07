@@ -108,7 +108,7 @@ nav {
     background-color: transparent;
 
     .side-bar-content {
-      width: calc(100% - (var(--navbar_space) * 4));
+      width: calc(100% - (var(--navbar_space) * 3));
       min-height: calc(100% - (var(--navbar_space) * 2));
       background-color: var(--secondary-bg);
       margin: var(--navbar_space) var(--navbar_space) var(--navbar_space) auto;
